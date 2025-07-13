@@ -1,0 +1,6 @@
+<resources>
+    <string name="greetings">Greetings</string>
+    <string name="hello">Hello</string>
+    <string name="search">Search diary…</string>
+    <string name="HomePage">HomePage</string>
+</resources>
