@@ -3,12 +3,20 @@
     <string name="hello">Hello</string>
     <string name="search">Search diary…</string>
     <string name="HomePage">HomePage</string>
-    <string name="app_name">moodpage</string>
-    <string name="logo">Logo Name</string>
-    <string name="name">Name\'s Diary</string>
-    <string name="date">date</string>
-    <string name="day">day</string>
     <string name="title">Title</string>
-    <string name="save">Save</string>
-    <string name="write">Write on Me</string>
+    <string name="wd">Write your diary...</string>
+    <string name="aboutus">About us</string>
+    <string name="back">← Back</string>
+    <string name="jethro">Jethro Wang</string>
+    <string name="role"><![CDATA[Developer & Designer]]></string>
+    <string name="roleb">Handles database integration and ensures the system works smoothly behind the scenes.</string>
+    <string name="roleA">Focused on clean UI/UX and functionality to make everyday journaling more efficient.</string>
+    <string name="zai">Zaimone Miranda</string>
+    <string name="role2">Backend Developer</string>
+    <string name="john">John Col</string>
+    <string name="role3">UI Tester</string>
+    <string name="roleC">Ensures usability and interface responsiveness across different Android devices.</string>
+    <string name="rylie">"Rylie Buenaventura "</string>
+    <string name="role4"><![CDATA[QA & Documentation]]></string>
+    <string name="roleD">Responsible for quality assurance and keeping project documentation clear and organized.</string>
 </resources>

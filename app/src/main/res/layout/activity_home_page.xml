@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,7 +29,20 @@
         app:layout_constraintStart_toEndOf="@id/tvHello"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Profile Icon -->
+
     <!-- Search Bar -->
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="33dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/etSearch"
         android:layout_width="0dp"
@@ -43,51 +55,33 @@
         android:hint="@string/search"
         android:inputType="text"
         android:padding="12dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUsername" />
 
-    <!-- replace with your own icon -->
-
-
     <!-- Calendar View -->
-
-    <ImageView
-        android:id="@+id/ivProfile"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="12dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toTopOf="@+id/etSearch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvUsername"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <CalendarView
-        android:id="@+id/cvClendar"
+        android:id="@+id/cvCalendar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etSearch" />
 
-    <!-- ScrollView for Diary Entries -->
+    <!-- Diary Entry Scroll List -->
     <ScrollView
         android:id="@+id/svDiaryList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@id/cvClendar"
         app:layout_constraintBottom_toTopOf="@id/floatingActionButton2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/cvCalendar">
 
         <LinearLayout
             android:id="@+id/llDiaryContainer"
@@ -96,56 +90,6 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-            <!-- Static Sample Entries -->
-            <TextView
-                android:id="@+id/tvEntry1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#E0E0E0"
-                android:textColor="#000000"
-                android:padding="16dp"
-                android:text="📖 Had a peaceful morning walk and reflected on my goals."
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvEntry2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#E0E0E0"
-                android:textColor="#000000"
-                android:padding="16dp"
-                android:text="🍜 Tried a new ramen shop downtown—absolutely delicious!"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvEntry3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#E0E0E0"
-                android:textColor="#000000"
-                android:padding="16dp"
-                android:text="📚 Finished reading 'Atomic Habits'."
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvEntry4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#E0E0E0"
-                android:textColor="#000000"
-                android:padding="16dp"
-                android:text="👩‍💻 Made progress on my Kotlin diary app project today!"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/tvEntry5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#E0E0E0"
-                android:textColor="#000000"
-                android:padding="16dp"
-                android:text="🌧️ It rained all evening. Stayed in, journaled, and listened to lo-fi music."
-                android:layout_marginBottom="8dp" />
         </LinearLayout>
     </ScrollView>
 
@@ -159,5 +103,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <Button
+        android:id="@+id/btnabout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="213dp"
+        android:layout_marginBottom="13dp"
+        android:text="@string/aboutus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/svDiaryList" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
