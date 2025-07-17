@@ -8,4 +8,6 @@
     <color name="light_blue">#38b6ff</color>
     <color name="light_grey_background">#F0F0F0</color>
     <color name="grey_txt">#666666</color>
+    <color name="background">#DAF3F5</color>
+    <color name="save">#E86100</color>
 </resources>

@@ -3,4 +3,12 @@
     <string name="hello">Hello</string>
     <string name="search">Search diary…</string>
     <string name="HomePage">HomePage</string>
+    <string name="app_name">moodpage</string>
+    <string name="logo">Logo Name</string>
+    <string name="name">Name\'s Diary</string>
+    <string name="date">date</string>
+    <string name="day">day</string>
+    <string name="title">Title</string>
+    <string name="save">Save</string>
+    <string name="write">Write on Me</string>
 </resources>
