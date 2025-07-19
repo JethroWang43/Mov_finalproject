@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Landing_Page">
+    tools:context=".LandingPage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_section"
@@ -21,29 +21,15 @@
 
         <ImageView
             android:id="@+id/logo_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_tech_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/itech"
             android:contentDescription="Tech Logo"
             app:layout_constraintVertical_bias="0.5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/txtLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TECH"
-            android:textSize="24sp"
-            android:textColor="@color/black"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@id/logo_img"
-            app:layout_constraintTop_toTopOf="@id/logo_img"
-            app:layout_constraintBottom_toBottomOf="@id/logo_img"
-            android:textStyle="bold"
-            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

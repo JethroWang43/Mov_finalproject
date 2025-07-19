@@ -19,26 +19,13 @@
 
     <ImageView
         android:id="@+id/logo_icon"
-        android:layout_width="24dp"
+        android:layout_width="50dp"
         android:layout_height="24dp"
-        android:src="@drawable/ic_tech_logo"
+        android:src="@drawable/itech"
         android:contentDescription="Tech Logo Icon"
         app:tint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/logo_text_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TECH"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginStart="4dp"
-        app:layout_constraintStart_toEndOf="@id/logo_icon"
-        app:layout_constraintTop_toTopOf="@id/logo_icon"
-        app:layout_constraintBottom_toBottomOf="@id/logo_icon" />
 
     <TextView
         android:id="@+id/sign_in_link_text"
@@ -162,7 +149,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/password_signup_input" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/sign_up_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -189,7 +176,7 @@
                 <TextView
                     android:id="@+id/already_have_account_text"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:text="Already have an account?"
                     android:textColor="@color/grey_txt"
                     android:textSize="14sp" />
@@ -203,7 +190,8 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:clickable="true"
-                    android:focusable="true" />
+                    android:focusable="true"
+                    android:minHeight="50dp" />
 
             </LinearLayout>
 

@@ -35,16 +35,11 @@
 
     <ImageView
         android:id="@+id/logo_icon"
-        android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/ic_tech_logo" android:contentDescription="Tech Logo Icon"
-        app:tint="@color/black" /> <TextView
-    android:id="@+id/logo_text"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="TECH"
-    android:textColor="@color/black"
-    android:textSize="32sp"
-    android:textStyle="bold"
-    android:layout_marginStart="8dp" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/itech"
+        android:contentDescription="Tech Logo Icon"
+        app:tint="@color/black" />
 
 </LinearLayout>
 
