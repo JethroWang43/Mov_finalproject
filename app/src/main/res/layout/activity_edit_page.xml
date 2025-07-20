@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp">
 
+    <!-- Display Username -->
+
+    <!-- Display Date and Day -->
+
+    <!-- Title -->
+
+    <!-- Content -->
     <EditText
         android:id="@+id/etTitle"
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_width="216dp"
+        android:layout_height="84dp"
         android:hint="@string/title" />
 
     <EditText
         android:id="@+id/etContent"
-        android:layout_width="357dp"
-        android:layout_height="507dp"
-        android:layout_weight="1"
+        android:layout_width="344dp"
+        android:layout_height="505dp"
+        android:background="@android:drawable/edit_text"
         android:gravity="top"
         android:hint="@string/wd"
-        android:maxLines="8"
-        android:minLines="3" />
+        android:padding="12dp"
+        android:textSize="16sp" />
 
+    <!-- Save Button -->
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save" />
 
+    <!-- Delete Button -->
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="365dp"

@@ -7,44 +7,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomePage"
+    android:background="@color/background"
     tools:openDrawer="start"> <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvHello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/greetings"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="33dp"
         android:layout_marginTop="25dp"
+        android:layout_marginEnd="284dp"
+        android:layout_marginBottom="12dp"
+        android:textColor="@color/bright_yellow"
         android:text="TextView"
+        android:fontFamily="@font/archivo_black"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/tvHello"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/etSearch"
+        app:layout_constraintEnd_toStartOf="@+id/ivProfile"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.657" />
 
     <ImageView
         android:id="@+id/ivProfile"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/ic_launcher_background"
-        android:contentDescription="Profile Icon"
-        android:clickable="true"
-        android:focusable="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="13dp"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="Profile Icon"
+        android:focusable="true"
+        android:src="@drawable/twotone_android_24"
+        app:layout_constraintBottom_toTopOf="@+id/etSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,7 +55,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="85dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/round_light_grey_bg"
         android:drawableStart="@android:drawable/ic_menu_search"
@@ -62,7 +64,7 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUsername" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CalendarView
         android:id="@+id/cvCalendar"
@@ -105,7 +107,7 @@
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" tools:ignore="SpeakableTextPresentCheck"
+        app:srcCompat="@drawable/baseline_add_circle_24" tools:ignore="SpeakableTextPresentCheck"
         app:tint="@android:color/white"
         app:backgroundTint="@color/deep_blue"/>
 

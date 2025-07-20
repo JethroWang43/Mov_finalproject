@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="@color/light_blue"
         android:padding="24dp"
         android:gravity="center_horizontal">
 
@@ -19,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/back"
+            android:backgroundTint="@color/bright_yellow"
             android:layout_gravity="start"
             android:layout_marginBottom="16dp" />
 
@@ -27,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/white"
+            android:background="@color/background"
             android:padding="16dp"
             android:layout_marginBottom="16dp">
 
@@ -66,7 +67,7 @@
         <!-- Zaimone Miranda -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:background="@color/white"
+            android:background="@color/background"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
@@ -108,7 +109,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/background"
             android:orientation="vertical"
             android:padding="16dp"
             android:layout_marginBottom="16dp">
@@ -148,7 +149,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/background"
             android:orientation="vertical"
             android:padding="16dp"
             android:layout_marginBottom="16dp">
