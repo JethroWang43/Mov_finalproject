@@ -157,8 +157,8 @@
 
             <Button
                 android:id="@+id/facebook_button"
-                android:layout_width="376dp"
-                android:layout_height="47dp"
+                android:layout_width="362dp"
+                android:layout_height="46dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/round_btn"
                 android:drawableStart="@drawable/ic_smollgb"
@@ -177,23 +177,23 @@
 
             <Button
                 android:id="@+id/google_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="Continue with Google"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:drawableStart="@drawable/ic_smollgoogle"
+                android:layout_width="358dp"
+                android:layout_height="41dp"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/round_btn"
+                android:drawableStart="@drawable/ic_smollgoogle"
                 android:drawableEnd="@drawable/arrow_right"
+                android:drawablePadding="16dp"
+                android:minHeight="48dp"
                 android:paddingStart="23dp"
                 android:paddingEnd="16dp"
-                android:drawablePadding="16dp"
+                android:text="Continue with Google"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginBottom="24dp" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
