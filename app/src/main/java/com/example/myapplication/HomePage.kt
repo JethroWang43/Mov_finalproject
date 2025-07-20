@@ -59,9 +59,11 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         // --- Show welcome on home page ---
         binding.tvUsername.text = "Welcome, $username!"
 
-        // ➕ Add entry
+        // ➕ Create new entry via MoodPage
         binding.floatingActionButton2.setOnClickListener {
-            addDiaryEntry("New Diary Entry", "Dear Diary:")
+            selectedEntry = null // ensure we are not editing
+            val intent = Intent(this, MoodPage::class.java)
+            startActivityForResult(intent, EDIT_REQUEST_CODE)
         }
 
         // 🔍 Search functionality
@@ -87,8 +89,8 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
             text = title
             textSize = 18f
             setPadding(16, 16, 16, 16)
-            setTextColor(0xFF000000.toInt()) // Black
-            setBackgroundColor(0xFFA8E6CF.toInt()) // Light grey
+            setTextColor(0xFF000000.toInt()) // Pure black text
+            setBackgroundColor(0xFFA8E6CF.toInt()) // Light green background
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -146,16 +148,23 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == EDIT_REQUEST_CODE) {
-            when (resultCode) {
-                Activity.RESULT_OK -> {
-                    val updatedTitle = data?.getStringExtra("updated_title") ?: ""
-                    val updatedContent = data?.getStringExtra("updated_content") ?: ""
+            if (resultCode == Activity.RESULT_OK) {
+                val updatedTitle = data?.getStringExtra("updated_title") ?: ""
+                val updatedContent = data?.getStringExtra("updated_content") ?: ""
+
+                if (selectedEntry != null) {
+                    // Update existing entry
                     selectedEntry?.text = updatedTitle
                     selectedEntry?.tag = updatedContent
+                    selectedEntry = null
+                } else {
+                    // Add new entry
+                    addDiaryEntry(updatedTitle, updatedContent)
                 }
-                Activity.RESULT_CANCELED -> {
-                    selectedEntry?.let { binding.llDiaryContainer.removeView(it) }
-                }
+            } else if (resultCode == Activity.RESULT_CANCELED && selectedEntry != null) {
+                // Optionally delete selected entry if canceled
+                binding.llDiaryContainer.removeView(selectedEntry)
+                selectedEntry = null
             }
         }
     }
