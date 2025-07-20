@@ -9,15 +9,20 @@
     tools:context=".MoodPage">
 
     <!-- Top Section -->
+
+    <!-- Bottom Card -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_section"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="24dp"
+        android:layout_marginTop="92dp"
         android:background="@color/deep_blue"
-        app:layout_constraintTop_toTopOf="parent"
+        android:padding="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tvHeader"
@@ -27,22 +32,21 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvSubheader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/Mtitle"
+            android:text="@string/intro"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/tvHeader"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHeader" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Bottom Card -->
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
