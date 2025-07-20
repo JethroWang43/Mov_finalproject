@@ -61,7 +61,7 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
         // ➕ Add entry
         binding.floatingActionButton2.setOnClickListener {
-            addDiaryEntry("Untitled", "New diary content...")
+            addDiaryEntry("New Diary Entry", "Dear Diary:")
         }
 
         // 🔍 Search functionality
@@ -88,7 +88,7 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
             textSize = 18f
             setPadding(16, 16, 16, 16)
             setTextColor(0xFF000000.toInt()) // Black
-            setBackgroundColor(0xFFE0E0E0.toInt()) // Light grey
+            setBackgroundColor(0xFFA8E6CF.toInt()) // Light grey
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
