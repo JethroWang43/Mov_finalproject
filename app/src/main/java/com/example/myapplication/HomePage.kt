@@ -56,6 +56,11 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
         navUsername.text = username
         navEmail.text = email
+
+        // Set username on the home screen TextView (tvUsername)
+        val homeUsernameTextView = findViewById<TextView>(R.id.tvUsername)
+        homeUsernameTextView.text = "Welcome, $username!"
+
         // --- DrawerLayout Setup END ---
 
 
