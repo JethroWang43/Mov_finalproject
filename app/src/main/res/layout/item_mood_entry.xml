@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvEntryItemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey_txt"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2025-07-20" />
+
+        <TextView
+            android:id="@+id/tvEntryItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@+id/ivEditEntry" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEntryItemDate"
+            tools:text="A Great Day Out in Nature" />
+
+        <TextView
+            android:id="@+id/tvEntryItemContentPreview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEntryItemTitle"
+            tools:text="Today I went to the park and saw many birds. The weather was perfect for a long walk..." />
+
+        <ImageView
+            android:id="@+id/ivEditEntry"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/sharp_ink_pen_24"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Edit Entry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="4dp"
+            app:tint="@color/deep_blue" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

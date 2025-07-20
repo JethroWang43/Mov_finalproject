@@ -35,4 +35,6 @@
     <string name="write">Write on Me</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+    <string name="profile_page">User Profile</string>
+    <string name="menu_profile">Profile</string>
 </resources>

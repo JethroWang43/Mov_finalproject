@@ -9,9 +9,9 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:layout_width="64dp"
+        android:layout_width="100dp"
         android:layout_height="64dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/itech_white"
         android:contentDescription="User Avatar" />
 
     <TextView

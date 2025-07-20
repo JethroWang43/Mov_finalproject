@@ -29,6 +29,15 @@ class ForgotPassword : AppCompatActivity() {
 
         db = DatabaseHandler(this)
 
+        // Set OnClickListener for the new "SIGN IN" text button
+        binding.textButtonSignIn.setOnClickListener {
+            val intent = Intent(this, SignIn::class.java)
+            // Using CLEAR_TOP and NEW_TASK flags is a good practice when navigating back to a main entry point like SignIn
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish() // Finish ForgotPassword activity so user can't come back to it with back button
+        }
+
         binding.btnResetPassword.setOnClickListener {
             val email = binding.emailInputForgot.text.toString().trim()
             val newPassword = binding.newPasswordInputForgot.text.toString().trim()
@@ -50,7 +59,7 @@ class ForgotPassword : AppCompatActivity() {
 
             if (success) {
                 Toast.makeText(this, "Password successfully reset! Please sign in.", Toast.LENGTH_LONG).show()
-                // Optionally navigate back to the SignIn screen
+                // Navigate back to the SignIn screen
                 val intent = Intent(this, SignIn::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)

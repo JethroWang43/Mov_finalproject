@@ -8,7 +8,6 @@
     android:background="@color/deep_blue"
     tools:context=".MoodPage">
 
-    <!-- Top Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_section"
         android:layout_width="0dp"
@@ -17,6 +16,7 @@
         android:background="@color/deep_blue"
         android:padding="24dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -41,9 +41,21 @@
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHeader" />
+
+        <TextView
+            android:id="@+id/tvEntryDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            tools:text="YYYY-MM-DD"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubheader" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Bottom Card -->
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -64,6 +76,18 @@
             android:paddingBottom="55dp"
             android:paddingHorizontal="20dp">
 
+            <Switch
+                android:id="@+id/stRead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Read-Only"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"/>
+
             <EditText
                 android:id="@+id/etTitle"
                 android:layout_width="0dp"
@@ -74,39 +98,28 @@
                 android:padding="16dp"
                 android:textSize="16sp"
                 android:background="@drawable/round_light_grey_bg"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stRead"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <EditText
-                android:id="@+id/etContent"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="16dp"
-                android:hint="@string/wd"
-                android:inputType="textMultiLine"
-                android:minHeight="160dp"
-                android:maxLines="10"
-                android:minLines="5"
-                android:padding="16dp"
-                android:textSize="16sp"
-                android:gravity="top|start"
-                android:textColorHint="@color/grey_txt"
-                android:background="@drawable/round_light_grey_bg"
-                app:layout_constraintTop_toBottomOf="@id/etTitle"
-                app:layout_constraintBottom_toTopOf="@id/btnSpacer"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <!-- Spacer to prevent collapse when buttons are hidden -->
-            <View
-                android:id="@+id/btnSpacer"
-                android:layout_width="0dp"
-                android:layout_height="8dp"
-                app:layout_constraintTop_toBottomOf="@id/etContent"
-                app:layout_constraintBottom_toTopOf="@id/btnSave"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp" /> <EditText
+            android:id="@+id/etContent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/wd"
+            android:inputType="textMultiLine"
+            android:minHeight="160dp"
+            android:maxLines="10"
+            android:minLines="5"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:gravity="top|start"
+            android:textColorHint="@color/grey_txt"
+            android:background="@drawable/round_light_grey_bg"
+            app:layout_constraintTop_toBottomOf="@id/etTitle"
+            app:layout_constraintBottom_toTopOf="@id/btnSave"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
                 android:id="@+id/btnSave"
@@ -117,7 +130,7 @@
                 android:textColor="@android:color/white"
                 android:background="@drawable/custom_button"
                 android:paddingVertical="12dp"
-                app:layout_constraintTop_toBottomOf="@id/btnSpacer"
+                app:layout_constraintTop_toBottomOf="@id/etContent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -136,20 +149,5 @@
                 app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
-    <!-- Read-only Switch -->
-    <Switch
-        android:id="@+id/st_read"
-        android:layout_width="125dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="307dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
-        android:text="ReadOnly"
-        app:layout_constraintBottom_toTopOf="@+id/top_section"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

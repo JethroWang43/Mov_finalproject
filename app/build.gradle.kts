@@ -18,6 +18,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            isDebuggable = true// Make sure this is true for your debug build
+        }
+
         release {
             isMinifyEnabled = false
             proguardFiles(

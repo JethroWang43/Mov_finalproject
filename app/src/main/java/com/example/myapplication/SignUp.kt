@@ -65,7 +65,8 @@ class SignUp : AppCompatActivity() {
                 Toast.makeText(this, "Username or Email already exists. Please Sign In or use another.", Toast.LENGTH_LONG).show()
             } else {
                 // 3. Insert User
-                val newUser = User(username, email, password)
+                // FIX: Explicitly name parameters for the User data class constructor
+                val newUser = User(username = username, email = email, password = password)
                 val result = db.insertData(newUser) // This already handles success/failure toasts
 
                 if (result != -1.toLong()) { // If insertion was successful (DatabaseHandler returns -1 on failure)
