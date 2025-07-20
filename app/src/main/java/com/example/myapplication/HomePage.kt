@@ -28,7 +28,7 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
         binding = ActivityHomePageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // --- DrawerLayout Setup START ---
+        // --- Drawer setup ---
         val toggle = ActionBarDrawerToggle(
             this,
             binding.drawerLayout,
@@ -44,25 +44,20 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        // --- IMPORTANT CHANGE: Retrieve and display user data ---
+        // --- Set Username/Email in Drawer ---
         val headerView = binding.navView.getHeaderView(0)
         val navUsername = headerView.findViewById<TextView>(R.id.nav_header_username)
         val navEmail = headerView.findViewById<TextView>(R.id.nav_header_email)
 
-        // Retrieve stored username and email from SharedPreferences
         val sharedPref = getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
-        val username = sharedPref.getString("username", "Guest User") // Default "Guest User"
-        val email = sharedPref.getString("email", "guest@example.com") // Default email
+        val username = sharedPref.getString("username", "Guest User")
+        val email = sharedPref.getString("email", "guest@example.com")
 
         navUsername.text = username
         navEmail.text = email
 
-        // Set username on the home screen TextView (tvUsername)
-        val homeUsernameTextView = findViewById<TextView>(R.id.tvUsername)
-        homeUsernameTextView.text = "Welcome, $username!"
-
-        // --- DrawerLayout Setup END ---
-
+        // --- Show welcome on home page ---
+        binding.tvUsername.text = "Welcome, $username!"
 
         // ➕ Add entry
         binding.floatingActionButton2.setOnClickListener {
@@ -92,8 +87,8 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
             text = title
             textSize = 18f
             setPadding(16, 16, 16, 16)
-            setTextColor(0xFF000000.toInt()) // Black color
-            setBackgroundColor(0xFFE0E0E0.toInt()) // Light grey background
+            setTextColor(0xFF000000.toInt()) // Black
+            setBackgroundColor(0xFFE0E0E0.toInt()) // Light grey
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -105,9 +100,10 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
             setOnClickListener {
                 selectedEntry = this
-                val intent = Intent(this@HomePage, EditPage::class.java)
-                intent.putExtra("entry_title", text.toString())
-                intent.putExtra("entry_content", tag.toString())
+                val intent = Intent(this@HomePage, MoodPage::class.java).apply {
+                    putExtra("entry_title", text.toString())
+                    putExtra("entry_content", tag.toString())
+                }
                 startActivityForResult(intent, EDIT_REQUEST_CODE)
             }
         }
@@ -118,14 +114,13 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> {
-                Toast.makeText(this, "You are on Home", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "You are already on Home", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_settings -> {
                 Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_about_us -> {
-                val intent = Intent(this, AboutTeam::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, AboutTeam::class.java))
             }
             R.id.nav_logout -> {
                 performLogout()
@@ -137,10 +132,7 @@ class HomePage : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLis
 
     private fun performLogout() {
         val sharedPref = getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
-        with (sharedPref.edit()) {
-            clear() // Clear all stored login data
-            apply()
-        }
+        sharedPref.edit().clear().apply()
 
         Toast.makeText(this, "Logging out...", Toast.LENGTH_SHORT).show()
 

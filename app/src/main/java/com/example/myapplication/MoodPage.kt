@@ -1,20 +1,45 @@
 package com.example.myapplication
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.myapplication.databinding.ActivityMoodPageBinding
 
 class MoodPage : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMoodPageBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_mood_page)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityMoodPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val title = intent.getStringExtra("entry_title") ?: ""
+        val content = intent.getStringExtra("entry_content") ?: ""
+
+        binding.etTitle.setText(title)
+        binding.etContent.setText(content)
+
+
+        binding.btnSave.setOnClickListener {
+            val resultIntent = Intent().apply {
+                putExtra("updated_title", binding.etTitle.text.toString())
+                putExtra("updated_content", binding.etContent.text.toString())
+            }
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish()
+        }
+
+        binding.btnDelete.setOnClickListener {
+            setResult(Activity.RESULT_CANCELED)
+            finish()
+        }
+
+
+        binding.btnDelete.setOnClickListener {
+            setResult(Activity.RESULT_CANCELED)
+            finish()
         }
     }
 }

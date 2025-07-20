@@ -19,6 +19,7 @@
         <activity
             android:name=".MoodPage"
             android:exported="false" />
+
         <activity
             android:name=".SignUp"
             android:exported="false" />

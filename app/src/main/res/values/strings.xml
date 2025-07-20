@@ -29,4 +29,10 @@
     <string name="menu_home">Home</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_logout">Logout</string>
+    <string name="mood_page">Your Mood Today</string>
+    <string name="intro">Take a moment to write how you\'re feeling.</string>
+    <string name="Mtitle">Insert Title</string>
+    <string name="write">Write on Me</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
 </resources>
