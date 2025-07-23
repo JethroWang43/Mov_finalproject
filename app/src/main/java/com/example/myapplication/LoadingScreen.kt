@@ -36,16 +36,11 @@ class LoadingScreen : AppCompatActivity() {
                     val targetActivityClass = Class.forName(targetActivityClassName) as Class<out AppCompatActivity>
                     val intent = Intent(this, targetActivityClass)
 
-                    // If you passed any extra data from the previous activity to LoadingScreen,
-                    // you can forward it to the target activity here:
-                    // intent.putExtras(intent.extras ?: Bundle())
-
                     startActivity(intent)
                     finish() // Close LoadingScreen so it's not on the back stack
                 } catch (e: ClassNotFoundException) {
                     e.printStackTrace()
                     // Handle error if target activity class is not found
-                    // Maybe redirect to a fallback like SignIn or show an error toast
                     Toast.makeText(this, "Error: Target activity not found.", Toast.LENGTH_LONG).show()
                 }
             } else {

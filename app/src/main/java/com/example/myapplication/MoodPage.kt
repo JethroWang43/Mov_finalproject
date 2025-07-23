@@ -28,7 +28,7 @@ class MoodPage : AppCompatActivity() {
         val sharedPref = getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
         val loggedInUsername = sharedPref.getString("username", null) // Get logged-in username
         if (loggedInUsername != null) {
-            // Get the actual user ID from the database using the username
+            // Get actual user ID from the database using the username
             userId = db.getUserId(loggedInUsername)
             if (userId == -1) {
                 // Handle error: User not found in DB, this should ideally not happen if login worked
@@ -37,14 +37,12 @@ class MoodPage : AppCompatActivity() {
                 return
             }
         } else {
-            // Handle error: Not logged in.
             Toast.makeText(this, "You must be logged in to create or edit diary entries.", Toast.LENGTH_LONG).show()
             finish()
             return
         }
 
         // Retrieve data passed from HomePage
-        // entryId will be -1L for a new entry, or a valid ID for an existing one
         entryId = intent.getLongExtra("entry_id", -1L)
         val receivedDate = intent.getStringExtra("selected_date") ?: "No Date Selected"
         val title = intent.getStringExtra("entry_title") ?: ""
@@ -58,8 +56,6 @@ class MoodPage : AppCompatActivity() {
         binding.etContent.setText(content)
 
         // If it's an existing entry, and the content/title are pre-filled,
-        // you might want to consider starting in read-only mode by default for existing entries.
-        // For now, it will start in editable mode as per your original code.
         binding.stRead.isChecked = false // Ensure it starts in editable mode by default
 
 
@@ -79,7 +75,6 @@ class MoodPage : AppCompatActivity() {
 
             if (entryId == -1L) {
                 // This is a new entry: Insert it into the database
-                // IMPORTANT ADJUSTMENT HERE: Pass id = 0 for new entries
                 val moodEntry = MoodEntry(
                     id = 0, // Explicitly pass 0 for new entries; DB will auto-increment
                     userId = userId, // Link entry to the current user
@@ -90,7 +85,6 @@ class MoodPage : AppCompatActivity() {
                 val newRowId = db.insertMoodEntry(moodEntry)
                 if (newRowId != -1L) {
                     Toast.makeText(this, "Entry saved successfully!", Toast.LENGTH_SHORT).show()
-                    // Pass the newly generated ID back to HomePage, along with updated data
                     resultIntent.putExtra("updated_title", updatedTitle)
                     resultIntent.putExtra("updated_content", updatedContent)
                     resultIntent.putExtra("entry_id", newRowId) // Return the new ID
@@ -101,7 +95,6 @@ class MoodPage : AppCompatActivity() {
                 }
             } else {
                 // This is an existing entry: Update it in the database
-                // For existing entries, use the actual entryId
                 val moodEntry = MoodEntry(
                     id = entryId, // Use the existing entryId
                     userId = userId, // Link entry to the current user
@@ -169,14 +162,13 @@ class MoodPage : AppCompatActivity() {
                 binding.btnSave.visibility = View.INVISIBLE
                 binding.btnDelete.visibility = View.INVISIBLE
                 // Force text color to black (assuming EditText's default text color might be different when disabled)
-                // It's better to use ContextCompat.getColor(this, R.color.black) if you have colors.xml
                 binding.etTitle.setTextColor(0xFF000000.toInt())
                 binding.etContent.setTextColor(0xFF000000.toInt())
             } else {
                 // Editing mode: show buttons
                 binding.btnSave.visibility = View.VISIBLE
                 binding.btnDelete.visibility = View.VISIBLE
-                // Restore text color (if it changed when disabled, otherwise it remains black)
+                // Restore text color
                 binding.etTitle.setTextColor(0xFF000000.toInt()) // Assuming black for editable text
                 binding.etContent.setTextColor(0xFF000000.toInt()) // Assuming black for editable text
             }
